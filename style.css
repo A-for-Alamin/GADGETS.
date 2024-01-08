@@ -1,0 +1,486 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-decoration: none;
+    font-family:'poppins', sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+header{
+    width:100%;
+    padding:5px 5%;
+    display: flex;
+    top:0;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(255, 255, 255);
+    box-shadow:0 2px 10px #aaa;
+    position:fixed;
+    z-index:999;
+}
+
+header::after{
+    content: "";
+    position: absolute;
+    background: #ffd23e;
+    left:0;
+    height:100%;
+    width:25%;
+    z-index:-1;
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+}
+
+div.logo a{
+    font-size:20px;
+    color: #ffffff;
+}
+
+div.logo a span{
+    font-size:36px;
+    color: #ff0000;
+    font-weight:700;
+    font-family: 'Dancing Script', cursive;
+}
+
+nav a{
+    padding:4px 15px;
+    color: #000;
+    border-radius: 3px;
+    cursor: pointer;
+    transition:.2s;
+}
+
+nav a:hover{
+    color: #000;
+    background:#ffd23e;
+}
+
+.hIcon{
+    display: flex;
+    gap:10px;
+}
+
+.hIcon i{
+    width:2rem;
+    height:2rem;
+    text-align:center;
+    line-height:2rem;
+    font-size:16px;
+    color: #000;
+    border-radius: 50%;
+    cursor: pointer;
+    background:#eee;
+    transition:.2s;
+}
+.hIcon i:hover{
+    color: #fff;
+    background: #ffd23e;
+}
+.hIcon i:nth-child(3){
+    display: none;
+}
+
+.wish,
+.cart{
+    position: fixed;
+    top:3.3rem;
+    right:0;
+    height:0;
+    width:30%;
+    background: #eee;
+    border-bottom-left-radius:5px;
+    overflow-y:auto;
+    transition:.3s;
+    z-index:999;
+}
+.active_wihs,
+.active_cart{
+    height:85%;
+    padding:10px;
+}
+
+
+@media (max-width:768px){
+    header::after{
+        width:35%;
+    }
+    nav{
+        position: absolute;
+        width:35%;
+        top:100%;right:0;
+        background:#fff;
+        border-bottom-left-radius: 3px;
+        transition:.3s;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    nav.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    nav a{
+        display: block;
+        padding:4px;
+        background:#eee;
+        margin:10px;
+        text-align: center;
+    }
+
+    .hIcon i:nth-child(3){
+        display:inline-block;
+    }
+
+    .wish,
+    .cart{
+        width:50%;
+    }
+}
+
+
+
+
+section{
+    padding: 15px 5%;
+    background: #def3f7;
+}
+
+.banner{
+    width:100%;
+    height:400px;
+    background-image: url('img/Banner.jpeg');
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+}
+
+.wish .wishHead,
+.cart .cartHead{
+    width:100%;
+    padding:5px 10px;
+    background: #ffd23e;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius:4px;
+}
+
+.wish .wishHead p,
+.cart .cartHead p{
+    color: #000;
+}
+.wish .wishHead p:nth-child(2),
+.cart .cartHead p:nth-child(2){
+    width:1.5rem;
+    height:1.5rem;
+    text-align: center;
+    line-height:1.5rem;
+    color: #000;
+    background:#eee;
+    border-radius:50%;
+}
+
+.innerWish,
+.innercart{
+    margin-bottom:10px;
+}
+
+.wishItem,
+.cartItem{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    margin-top:10px;
+    background: #ffffff;
+    padding:5px;
+    border-radius:4px;
+}
+
+.wishItem:hover,
+.cartItem:hover{
+    box-shadow:0px 2px 3px #444;
+}
+
+.innerWish .wishItem .img,
+.innercart .cartItem .img{
+    width:2rem;
+    height: 2rem;
+    background: #222;
+    border-radius:50%;
+    overflow: hidden;
+}
+.innerWish .wishItem .img img,
+.innercart .cartItem .img img{
+    width:100%;
+    height: 100%;
+}
+.innerWish .wishItem .title,
+.innercart .cartItem .title{
+    width:70%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.innerWish .wishItem .title p,
+.innercart .cartItem .title p{
+    font-size:13px;
+    color: #000;
+}
+.innerWish .wishItem .del i,
+.innercart .cartItem .del i{
+    color: #ffd23e;
+    background:#aaa;
+    width:23px;
+    height:23px;
+    text-align: center;
+    line-height:23px;
+    font-size:14px;
+    border-radius: 50%;
+}
+
+.cart .totaldiv{
+    border-top:1px solid #333;
+    padding:10px 0;
+    display: flex;
+    justify-content:space-between;
+}
+.cart .totaldiv h3{
+    color: #000;
+}
+
+.features{
+    width:100%;
+    display: flex;
+    border:15px solid #fff;
+    margin-top:15px;
+    background:#fff;
+    border-radius:10px;
+    overflow-x:auto;
+
+    scrollbar-width:none;/*Scrollbar Hide for Firefox */
+}
+.features::-webkit-scrollbar{ 
+    display: none;/*Scrollbar Hide for All Browser */
+}
+
+figure{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.features div.featBox{
+    width:170px;
+    height:130px;
+    padding:5px;
+    border-radius:3px;
+    background:#ffd23e;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow:0px 0px 3px rgb(114, 250, 209);
+}
+
+.features div.featBox div{
+    width:100%;
+    height:70%;
+    background-color: #fff;
+}
+
+.features div.featBox img{
+    width:100%;
+    height:100%;
+}
+
+.features div.featBox h4{
+    padding: 5px;
+    background: #fdb6b6ea;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+
+
+#categories h3{
+    margin:0 0 10px 5px;
+    letter-spacing:1.5px;
+    color: #000;
+}
+#categories .categories{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 15px;
+    background:#fff;
+    padding:15px;
+    border-radius:10px;
+}
+
+#categories div.categ_box{
+    width:100px;
+    height:100px;
+    padding:5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border:1.5px solid #eee;
+}
+
+#categories div.categ_box:hover{
+    box-shadow:1px 1px 5px #aaa;
+}
+
+#categories div.categ_box div{
+    width:90%;
+    height:70%;
+}
+
+#categories div.categ_box div img{
+    width:100%;
+    height:100%;
+    padding:5px;
+}
+
+#categories div.categ_box a{
+    color: #000;
+    font-size:13px;
+    width: 100%;
+    text-align: center;
+    padding:3px;
+    background: lightgreen;
+}
+
+
+
+#forYou h3{
+    margin:0 0 10px 5px;
+    letter-spacing:1.5px;
+    color: #000;
+}
+
+
+#forYou .items{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 15px;
+    background:#fff;
+    padding:15px;
+    border-radius:10px;
+}
+
+#forYou .items .itemBox{
+    width:200px;
+    height:300px;
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border:1px solid #aaa;
+}
+
+#forYou .items .itemBox .itemImg{
+    width:90%;
+    height:60%;
+}
+
+.items .itemBox .itemImg img{
+    width:100%;
+    height:100%;
+}
+
+#forYou .items .itemBox .itemEtc{
+    height:40%;
+    margin-top:5px;
+    position: relative;
+}
+
+.items .itemBox .itemEtc .titleDiv{
+    height:45%;
+}
+.items .itemBox .itemEtc .titleDiv strong{
+    font-size:15px;
+    padding-bottom:15px;
+    color: #000;
+    display: block;
+}
+.items .itemBox .itemEtc p{
+    font-size:15px;
+    padding-bottom:10px;
+    color: #da0000;
+}
+.items .itemBox .itemEtc i{
+    font-size:15px;
+    padding-bottom:10px;
+    color: #000;
+    position: absolute;
+    bottom:35%;
+    right: 0;
+}
+.items .itemBox .itemEtc .buttonDiv{
+    display: flex;
+    justify-content: space-between;
+    gap:5px;
+}
+.items .itemBox .itemEtc button{
+    font-size:14px;
+    padding:4px 10px;
+    color: #000;
+    background:rgb(255, 187, 0);
+    border-radius: 4px;
+    border: none;
+}
+
+
+
+footer{
+    padding:20px 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+footer .col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+footer .col h4{
+    margin-bottom:15px;
+}
+
+footer .col p{
+    font-size:13px;
+    margin-bottom:8px ;
+}
+
+footer  .col .social{
+   margin-top: 20px;
+}
+
+footer  .col .social i{
+    color: #465b52;
+    padding-right:4px;
+    cursor: pointer;
+    transition:0.1s;
+}
+
+footer .col a{
+    font-size: 13px;
+    color: #222;
+    margin-bottom:8px;
+    transition:0.1s;
+}
+
+footer .col a:hover{
+    color:rgb(0, 128, 121);
+}
